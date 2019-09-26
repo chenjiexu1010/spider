@@ -13,8 +13,8 @@ base_url = 'https://www.xiaohongshu.com/discovery/item/'
 
 sql_server = '192.168.2.72'
 
-conn = pymssql.connect(sql_server, 'WebTest1',
-                       'WebTest1', 'Jeqee_Navy_RedBook')
+conn = pymssql.connect(sql_server, '',
+                       '', '')
 
 insert_sql = 'INSERT INTO [dbo].[RedBookGetData] VALUES (\'%s\', \'%s\', \'%s\', %d, \'%s\', %s, \'%s\', \'%s\')'
 
