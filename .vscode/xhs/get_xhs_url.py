@@ -13,12 +13,14 @@ base_url = 'https://www.xiaohongshu.com/discovery/item/'
 
 sql_server = '192.168.2.72'
 
-conn = pymssql.connect(sql_server, '',
-                       '', '')
+conn = pymssql.connect(sql_server, 'WebTest1',
+                       'WebTest1', 'Jeqee_Navy_RedBook')
 
-insert_sql = 'INSERT INTO [dbo].[RedBookGetData] VALUES (\'%s\', \'%s\', \'%s\', %d, \'%s\', %s, \'%s\', \'%s\')'
+insert_sql = 'INSERT INTO [dbo].[RedBookGetData] VALUES (\'%s\', \'%s\', \'%s\', %d, \'%s\', %s, \'%s\', %d, \'%s\')'
 
 select_sql = 'SELECT TOP 1 * FROM [RedBookGetData] WHERE TargetUid = \'%s\''
+
+update_sql = 'UPDATE RedBookGetData SET Times = Times + 1 WHERE TargetUid = \'%s\''
 
 cursor = conn.cursor()
 if not cursor:
@@ -61,15 +63,16 @@ def get_url():
                     if rows:
                         print('%s 数据库已存在 %s' %
                               (data['id'], time.strftime('%Y-%m-%d %H:%M:%S')))
+                        cursor.execute(update_sql % data['id'])
                         continue
                     print(data)
                     # 新增数据库
                     print(insert_sql % (
-                        data['user']['id'], data['id'], data['link'], data['likes'], data['title'], 1 if(data['is_liked']) else 0, data['user']['nickname'], time.strftime('%Y-%m-%d %H:%M:%S')))
+                        data['user']['id'], data['id'], data['link'], data['likes'], data['title'], 1 if(data['is_liked']) else 0, data['user']['nickname'], 1, time.strftime('%Y-%m-%d %H:%M:%S')))
                     cursor.execute(insert_sql % (data['user']['id'], data['id'], data['link'], data['likes'], data['title'], 1 if(
-                        data['is_liked']) else 0, data['user']['nickname'], time.strftime('%Y-%m-%d %H:%M:%S')))
+                        data['is_liked']) else 0, data['user']['nickname'], 1, time.strftime('%Y-%m-%d %H:%M:%S')))
                 conn.commit()
-            time.sleep(60*30)
+            time.sleep(60*60)
         else:
             print('请求失败:%s' % hide_res.status_code)
             time.sleep(30 * 60)
