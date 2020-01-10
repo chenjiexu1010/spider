@@ -14,8 +14,8 @@ pic_change_url = 'http://222.185.251.62:22027/api/phone/getpicurl'
 
 class XhsSearch(object):
     def __init__(self):
-        # self.d = u2.connect('http://0.0.0.0')
-        self.d = u2.connect_usb('56d78870')
+        self.d = u2.connect('http://0.0.0.0')
+        # self.d = u2.connect_usb('56d78870')
         self.d.watcher("ALERT").when(text="取消")
         self.d.watcher("ALERT").when(text="下次再说").click()
         self.get_xhs_url = 'http://222.185.251.62:22027/api/GetRedBookData'
@@ -47,7 +47,7 @@ class XhsSearch(object):
     # 启动app
     def app_start(self):
         self.d.screen_on()
-        self.d.app_start('com.xingin.xhs', use_monkey=True)
+        self.d.app_start('com.xingin.xhs')
         self.d.app_wait('com.xingin.xhs', front=True, timeout=20)
         is_exist = self.d(text='跳过广告').exists()
         if is_exist:
@@ -125,6 +125,8 @@ class XhsSearch(object):
                     return b
                     # 下滑
                 self.d.swipe_ext('up', scale=0.2)
+                if self.d(text='- THE END -').exists():
+                    return ''
                 time.sleep(2)
         except Exception as e:
             print(e)

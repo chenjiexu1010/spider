@@ -4,18 +4,15 @@
 import uiautomator2 as u2
 import time
 import urllib.request
-import urllib.parse
-import datetime
-from collections import namedtuple
-from enum import Enum
-from pprint import pprint
-import itertools
+import requests
 
-content = ''
-if content:
-    print(1)
-else:
-    print(2)
+header = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36'
+}
+com_url = 'http://192.168.2.74:5000/comshot2/海外婚礼/美好回忆。/0'
+
+result = requests.get(url=com_url, headers=header)
+
 
 # fruits = ['apple', 'banana', 'mango']
 # for fruit in fruits:

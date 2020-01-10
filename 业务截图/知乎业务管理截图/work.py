@@ -10,12 +10,16 @@ import os
 d = u2.connect('0.0.0.0')
 # d = u2.connect_usb('f7d64448')
 d.set_new_command_timeout(300000)
-zhihu_type_url = 'http://v3.jqsocial.com:22025/api/common/zhihu/getshot?code=jeqeehot'
-zhihu_type_submit_url = 'http://v3.jqsocial.com:22025/api/common/zhihu/postshot'
+# zhihu_type_url = 'http://v3.jqsocial.com:22025/api/common/zhihu/getshot?code=jeqeehot'
+# zhihu_type_submit_url = 'http://v3.jqsocial.com:22025/api/common/zhihu/postshot'
+
+zhihu_type_url = 'http://222.185.251.62:22027/api/business/getzhihushot'
+zhihu_type_submit_url = 'http://222.185.251.62:22027/api/business/submitzhihushot'
 update_phone_url = 'http://222.185.251.62:22027/api/phone/updatephoneinfo'
 headers = {'Content-Type': 'application/json'}
 typecode = '知乎业务管理'
 phonecode = '小米手机07'
+code = 'jeqeehot'
 
 
 class ZhiHuScreen(object):
@@ -104,22 +108,27 @@ class ZhiHuScreen(object):
         while True:
             try:
                 d.app_start('com.zhihu.android')
-                request = requests.post(zhihu_type_url)
+                request = requests.post(zhihu_type_url, headers=headers, data=json.dumps(code))
                 if request.status_code == 200:
                     search_dic = json.loads(request.text)
-                    if not search_dic['Data']:
+                    if '任务为空' in request.text:
                         ZhiHuScreen.update_phone(self, '无任务', '检测')
                         time.sleep(5 * 60)
                         # 检查守护线程 是否运行
                         d.healthcheck()
                         d.app_start('com.zhihu.android')
                         continue
-                    for key in search_dic['Data']:
+                    search_dic = json.loads(search_dic)
+                    for key in search_dic:
                         bt = ZhiHuScreen.search(self, key['key'])
                         if bt:
                             json_str = json.dumps(bt)
-                            submit = requests.post(zhihu_type_submit_url,
-                                                   data={'id': key['id'], 'code': 'jeqeehot', 'pic': json_str})
+                            submit_body = {
+                                'id': key['id'],
+                                'code': 'jeqeehot',
+                                'pic': json_str
+                            }
+                            submit = requests.post(zhihu_type_submit_url, headers=headers, data=json.dumps(submit_body))
                             ZhiHuScreen.update_phone(self, submit.text, '检测')
                         else:
                             ZhiHuScreen.update_phone(self, '截图失败', '检测')

@@ -18,7 +18,7 @@ SELECT_HOUR = 'SELECT vps,max(WorkTime) AS 最新拉取时间 from CloneLog wher
 # 邮件发送方
 msg_from = 'chenjiexu_1991@qq.com'
 # 授权码
-password = 'mkcirhcjxemmbehg'
+password = 'wajizbaljnadbejc'
 # 收件人邮箱
 msg_to = 'chenjiexu@jeqee.com'
 
@@ -45,7 +45,7 @@ class XiaoMiCheckTool(object):
             try:
                 s = smtplib.SMTP_SSL('smtp.qq.com', 465)
                 s.login(msg_from, password)  # 登陆QQ邮箱服务器
-                s.sendmail(msg_from, msg_to, msg.as_string())  # 发送邮件
+                s.sendmail(msg_from, msg_to, msg.as_string())
                 print("邮件发送成功 %s " % (datetime.datetime.now()))
                 s.quit()
             except smtplib.SMTPException as e:

@@ -11,11 +11,13 @@ import json
 d = u2.connect('8ed6eadf')  # 连接手机
 d.watcher("ALERT").when(text="以后再说").click()
 
+code = 'jeqeehot'
+
 
 class DouYinSearch(object):
     def __init__(self):
-        self.douyin_url = 'http://v3.jqsocial.com:22025/api/common/dy/getshot?code=jeqeehot'
-        self.douyin_submit_url = 'http://v3.jqsocial.com:22025/api/common/dy/postshot'
+        self.douyin_url = 'http://222.185.251.62:22027/api/business/getdouyinshot'
+        self.douyin_submit_url = 'http://222.185.251.62:22027/api/business/submitdouyinshot'
         self.body = {'PhoneCode': '小米手机05'}
         self.headers = {'Content-Type': 'application/json'}
         self.phonecode = '小米手机05'
@@ -23,7 +25,6 @@ class DouYinSearch(object):
         self.message = ''
         self.update_phone_url = 'http://222.185.251.62:22027/api/phone/updatephoneinfo'
         DouYinSearch.open_dou_yin(self)
-        pass
 
     def update_phone(self, typecode, logtype, phone_code):
         body = {
@@ -113,10 +114,11 @@ class DouYinSearch(object):
         try:
             while True:
                 try:
-                    request = requests.post(self.douyin_url)
+                    request = requests.post(self.douyin_url, headers=self.headers, data=json.dumps(code))
                     if request.status_code == 200:
                         text = json.loads(request.text)
-                        if not text['Data']:
+                        text = json.loads(text)
+                        if '任务为空' in request.text:
                             DouYinSearch.update_phone(self, self.typecode, '无任务', self.phonecode)
                             time.sleep(10 * 60)
                             # 检查守护线程 是否运行
@@ -124,13 +126,18 @@ class DouYinSearch(object):
                             DouYinSearch.open_dou_yin(self)
                             continue
                         print(text)
-                        for key in text['Data']:
+                        for key in text:
                             self.message = '检测'
                             b = DouYinSearch.douyin_search_keyworld(self, key['key'])
                             if b:
                                 json_str = json.dumps(b)
-                                submit = requests.post(self.douyin_submit_url,
-                                                       data={'id': key['id'], 'code': 'jeqeehot', 'pic': json_str})
+                                submit_body = {
+                                    'id': key['id'],
+                                    'code': 'jeqeehot',
+                                    'pic': json_str
+                                }
+                                submit = requests.post(self.douyin_submit_url, headers=self.headers,
+                                                       data=json.dumps(submit_body))
                                 print(submit.text)
                                 DouYinSearch.update_phone(self, self.typecode, '截图成功', self.phonecode)
                             else:

@@ -7,14 +7,20 @@ import uuid
 import requests
 import json
 
+PACKAGE_NAME = 'com.sina.weibo'
+
 
 class WeiBoScreenShot(object):
-    package_name = 'com.sina.weibo'
 
-    def __init__(self):
+    def __init__(self, serial):
         self.count = 3
         self.time_count = 10
-        self.driver = ui2.connect_usb('8c5a04d2')
+        self.driver = ui2.connect_usb(serial)
+        # if isinstance(self.driver, Device):
+        #     assert '类型不对'
+        self.driver.watcher("ALERT").when(text='取消').click()
+        self.driver.watcher("ALERT").when(text='下次再说').click()
+        self.driver.watcher("ALERT").when(text='以后再说').click()
         # self.driver = ui2.connect('http://0.0.0.0')
         self.get_url = 'http://222.185.251.62:22027/api/GetWeiBoShotData'
         self.submit_url = 'http://222.185.251.62:22027/api/PostWeiBoShotData'
@@ -25,7 +31,7 @@ class WeiBoScreenShot(object):
     # 打开app
     def open_app_ready(self):
         self.driver.screen_on()
-        self.driver.app_start('com.sina.weibo')
+        self.driver.app_start(PACKAGE_NAME)
         time.sleep(10)
         # 打开app 弹窗
         exist = self.driver(resourceId='com.sina.weibo:id/rl_content').exists()
@@ -36,7 +42,7 @@ class WeiBoScreenShot(object):
 
     # 重启app
     def restart_app(self):
-        self.driver.session('com.sina.weibo')
+        self.driver.session('PACKAGE_NAME')
         time.sleep(8)
 
     # 热门截图

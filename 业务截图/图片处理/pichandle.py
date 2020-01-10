@@ -46,7 +46,7 @@ class PicHandle(object):
                         'TaskId': res['TaskId'],
                         'TypeCode': res['TypeCode'],
                         'PicCheck': json.dumps(b),
-                        'Message': '成功'
+                        'Message': '成功',
                     }
                     if res['TypeCode'] == 'JQHOT_0300':
                         re = requests.post(oasis_type_submit_url, headers=self.headers, data=json.dumps(body))

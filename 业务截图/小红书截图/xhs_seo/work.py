@@ -9,20 +9,19 @@ import requests
 import json
 import datetime
 
+code = 'jeqeehot'
+
 
 class XhsScreenHot(object):
     def __init__(self):
-        # os.system("su root am start -n com.github.uiautomator/.MainActivity")
-        self.d = u2.connect('http://0.0.0.0')
-        # self.d = u2.connect_usb('a4264501')
-        self.d.set_new_command_timeout(300000)
-        # self.d.healthcheck()
-        self.typecode = '小红书业务管理'
-        # self.d = u2.connect_usb('a4264501')
+        # self.d = u2.connect('http://0.0.0.0')
+        self.d = u2.connect_usb('a4264501')
         self.d.watcher("ALERT").when(text="取消").click()
-        self.d.watcher("ALERT").when(text="下次再说").click()
-        self.screen_hot1_url = 'http://v3.jqsocial.com:22025/api/common/getshot?code=jeqeehot'
-        self.screen_hot1_submit_url = 'http://v3.jqsocial.com:22025/api/common/postshot'
+        self.d.set_new_command_timeout(300000)
+        self.typecode = '小红书业务管理'
+        XhsScreenHot.register_watcher(self)
+        self.screen_hot1_url = 'http://222.185.251.62:22027/api/business/getredbookshot'
+        self.screen_hot1_submit_url = 'http://222.185.251.62:22027/api/business/submitredbookshot'
         # 更新手机信息url
         self.headers = {'Content-Type': 'application/json'}
         self.phone_code = '小米手机01'
@@ -30,16 +29,16 @@ class XhsScreenHot(object):
         print("手机连接成功")
         XhsScreenHot.app_start(self)
 
+    # 注册监听事件
+    def register_watcher(self):
+        self.d.watcher("ALERT").when(text="取消").click()
+        self.d.watcher("ALERT").when(text="下次再说").click()
+
     # 启动app
     def app_start(self):
-        print('app重启')
         self.d.screen_on()
         self.d.app_start('com.xingin.xhs')
         time.sleep(10)
-        exist = self.d(text='取消').exists()
-        if exist:
-            self.d(text='取消').click()
-            time.sleep(2)
 
     # 判读是否在首页
     def judge_home(self):
@@ -93,7 +92,7 @@ class XhsScreenHot(object):
     def xhs_search_news_screen(self, key_world):
         try:
             # 搜索框是否存在
-            search = self.d(resourceId='com.xingin.xhs:id/b2y').exists
+            search = self.d(resourceId='com.xingin.xhs:id/b2y').exists()
             if not search:
                 XhsScreenHot.app_start(self)
                 return
@@ -160,24 +159,23 @@ class XhsScreenHot(object):
             try:
                 bt = ''
                 # 请求
-                request = requests.post(self.screen_hot1_url)
+                request = requests.post(self.screen_hot1_url, headers=self.headers, data=json.dumps(code))
                 # 请求成功  200 SEO 截图首页   201 代运营搜索关键词截取第一篇笔记
                 if request.status_code == 200:
                     search_dic = json.loads(request.text)
-                    i = 0
-                    if not search_dic['Data']:
+                    if '任务为空' in request.text:
                         print('暂无任务 %s' % (datetime.datetime.now()))
                         XhsScreenHot.update_phone(self, self.typecode, '无任务', self.phone_code)
-                        time.sleep(1 * 60)
-                        self.d.healthcheck()
+                        time.sleep(3 * 60)
+                        # self.d.healthcheck()
                         # 检查守护线程 是否运行
-                        XhsScreenHot.app_start(self)
+                        # XhsScreenHot.app_start(self)
                         continue
-                    print('获取到任务长度:%s' % (len(search_dic['Data'])))
-                    for key in search_dic['Data']:
+                    search_dic = json.loads(search_dic)
+                    i = 0
+                    for key in search_dic:
                         try:
                             i += 1
-                            print('当前已执行%s/%s' % (i, len(search_dic['Data'])))
                             if key['typecode'] == 'JQHOT_0200':
                                 bt = XhsScreenHot.xhs_search_screen(self, key['key'])
                                 if not bt:
@@ -188,8 +186,13 @@ class XhsScreenHot(object):
                                     continue
                             # 提交
                             json_str = json.dumps(bt)
-                            submit = requests.post(self.screen_hot1_submit_url,
-                                                   data={'id': key['id'], 'code': 'jeqeehot', 'pic': json_str})
+                            submit_body = {
+                                'id': key['id'],
+                                'code': 'jeqeehot',
+                                'pic': json_str
+                            }
+                            submit = requests.post(self.screen_hot1_submit_url, headers=self.headers,
+                                                   data=json.dumps(submit_body))
                             XhsScreenHot.update_phone(self, self.typecode, '提交任务', self.phone_code)
                             print(submit.text + '%s：提交一条任务' % key['typecode'])
                         except Exception as e:
@@ -202,7 +205,6 @@ class XhsScreenHot(object):
                 XhsScreenHot.app_start(self)
             time.sleep(10)
             XhsScreenHot.app_start(self)
-            # 更新手机使用时间
 
 
 if __name__ == '__main__':

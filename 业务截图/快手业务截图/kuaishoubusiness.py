@@ -10,12 +10,18 @@ import os
 # d = u2.connect('0.0.0.0')
 # d.healthcheck()
 d = u2.connect_usb('35954d57')
-kuaishou_type_url = 'http://v3.jqsocial.com:22025/api/common/ks/getshot?code=jeqeehot'
-kuaishou_type_submit_url = 'http://v3.jqsocial.com:22025/api/common/ks/postshot'
+# kuaishou_type_url = 'http://v3.jqsocial.com:22025/api/common/ks/getshot?code=jeqeehot'
+# kuaishou_type_submit_url = 'http://v3.jqsocial.com:22025/api/common/ks/postshot'
+
+kuaishou_type_url = 'http://222.185.251.62:22027/api/business/getksshot'
+kuaishou_type_submit = 'http://222.185.251.62:22027/api/business/submitksshot'
+
 update_phone_url = 'http://222.185.251.62:22027/api/phone/updatephoneinfo'
 headers = {'Content-Type': 'application/json'}
 typecode = '快手业务管理'
 phonecode = '小米手机06'
+# 业务截图 传参
+code = 'jeqeehot'
 
 
 class KuaiShouScreen(object):
@@ -94,22 +100,27 @@ class KuaiShouScreen(object):
     def execute(self):
         while True:
             try:
-                request = requests.post(kuaishou_type_url)
+                request = requests.post(kuaishou_type_url, headers=headers, data=json.dumps(code))
                 if request.status_code == 200:
                     search_dic = json.loads(request.text)
-                    if not search_dic['Data']:
+                    if '任务为空' in request.text:
                         KuaiShouScreen.update_phone(self, '无任务', '检测')
                         time.sleep(10 * 60)
                         # 检查守护线程 是否运行
                         d.healthcheck()
                         d.app_start('com.smile.gifmaker')
                         continue
-                    for key in search_dic['Data']:
+                    search_dic = json.loads(search_dic)
+                    for key in search_dic:
                         bt = KuaiShouScreen.search(self, key['key'])
                         if bt:
                             json_str = json.dumps(bt)
-                            submit = requests.post(kuaishou_type_submit_url,
-                                                   data={'id': key['id'], 'code': 'jeqeehot', 'pic': json_str})
+                            submit_body = {
+                                'id': key['id'],
+                                'code': 'jeqeehot',
+                                'pic': json_str
+                            }
+                            submit = requests.post(kuaishou_type_submit, headers=headers, data=json.loads(submit_body))
                             print(submit)
                             KuaiShouScreen.update_phone(self, '截图成功', '检测')
                         else:

@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['pichandle.py'],
-             pathex=['E:\\JeqeeSystemManager\\JeqeeSystemManager\\业务截图\\图片处理'],
+             pathex=['E:\\Jeqee热门\\spider\\业务截图\\图片处理'],
              binaries=[],
              datas=[],
              hiddenimports=[],

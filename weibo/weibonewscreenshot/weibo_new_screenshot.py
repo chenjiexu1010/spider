@@ -104,6 +104,7 @@ class WeiBoNewScreenShot(object):
                     hot_info = d(text='热门').info
                     left = hot_info['bounds']['left']
                     top = hot_info['bounds']['top']
+                    # 移动到热门版面
                     d(text="热门").gesture((left, top),
                                          (left, top),
                                          (0, 287), (0, 287))
@@ -113,6 +114,8 @@ class WeiBoNewScreenShot(object):
                         # 判断移动位置后截图是否在准确位置
                         is_sure = WeiBoNewScreenShot.judge_screen_page(self)
                         if is_sure:
+                            # 进入个人主页,判断微博昵称是否一致
+
                             pic_name = str(uuid.uuid1()) + '.png'
                             d.screenshot(pic_name)
                             # TODO 上传图片到图片服务器
@@ -126,7 +129,6 @@ class WeiBoNewScreenShot(object):
                         # 内容不匹配 下移
                         d.swipe_ext('up', scale=0.3)
                         time.sleep(2)
-                        # 暂未找到热门版面
                 else:
                     i += 1
                     d.swipe_ext('up', scale=0.3)

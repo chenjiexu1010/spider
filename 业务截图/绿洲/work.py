@@ -13,17 +13,21 @@ oasis_seo_url = 'http://222.185.251.62:22027/api/GetLvZhouData'
 oasis_seo_submit_url = 'http://222.185.251.62:22027/api/UpdateLvZhouPicCheck'
 
 # 绿洲业务管理
-oasis_type_url = 'http://v3.jqsocial.com:22025/api/common/oasis/getshot?code=jeqeehot'
-oasis_type_submit_url = 'http://v3.jqsocial.com:22025/api/common/oasis/postshot'
+# oasis_type_url = 'http://v3.jqsocial.com:22025/api/common/oasis/getshot?code=jeqeehot'
+# oasis_type_submit_url = 'http://v3.jqsocial.com:22025/api/common/oasis/postshot'
+
+oasis_type_url = 'http://222.185.251.62:22027/api/business/getlvzhoushot'
+oasis_type_submit_url = 'http://222.185.251.62:22027/api/business/submitlvzhoushot'
 
 pic_handle_insert_url = 'http://222.185.251.62:22027/api/phone/pichandle'
 pic_change_url = 'http://222.185.251.62:22027/api/phone/getpicurl'
+code = 'jeqeehot'
 
 
 class OasisSeo(object):
     def __init__(self):
-        self.d = u2.connect_usb('8c5a04d2')
-        # self.d = u2.connect_wifi('http://0.0.0.0')
+        # self.d = u2.connect_usb('8c5a04d2')
+        self.d = u2.connect_wifi('http://0.0.0.0')
         self.d.screen_on()
         self.d.set_new_command_timeout(timeout=300000)
         self.d.watcher("ALERT").when(text="取消").click()
@@ -38,7 +42,6 @@ class OasisSeo(object):
         self.update_phone_url = 'http://222.185.251.62:22027/api/phone/updatephoneinfo'
         self.location = {}
         OasisSeo.open_app(self)
-        pass
 
     def update_phone(self, typecode, logtype, phone_code):
         body = {
@@ -220,21 +223,27 @@ class OasisSeo(object):
     # 绿洲业务管理截图
     def typecode_execute(self):
         try:
-            req = requests.post(oasis_type_url)
+            req = requests.post(oasis_type_url, headers=self.headers, data=json.dumps(code))
             if req.status_code == 200:
                 res = json.loads(req.text)
-                if '任务为空' in res['Message']:
+                if '任务为空' in req.text:
                     return '任务为空'
-                for key in res['Data']:
+                res = json.loads(res)
+                for key in res:
                     bt = OasisSeo.search_key(self, key['key'])
                     if not bt:
                         OasisSeo.update_phone(self, self.typecode2, '截图失败', self.phonecode)
                         continue
                     if bt:
                         bt = json.dumps(bt)
-                        submit = requests.post(oasis_type_submit_url,
-                                               data={'id': key['id'], 'code': 'jeqeehot', 'pic': bt})
-                        OasisSeo.update_phone(self, self.typecode2, submit.text, self.phonecode)
+                        submit_body = {
+                            'Id': key['id'],
+                            'Code': 'jeqeehot',
+                            'Pic': bt
+                        }
+                        requests.post(oasis_type_submit_url, headers=self.headers,
+                                      data=json.dumps(submit_body))
+                        OasisSeo.update_phone(self, self.typecode2, '提交截图成功', self.phonecode)
             else:
                 return ''
         except Exception as e:
@@ -248,7 +257,7 @@ class OasisSeo(object):
                 self.d.screen_on()
                 print('运行中')
                 # 业务管理
-                # res = OasisSeo.typecode_execute(self)
+                res = OasisSeo.typecode_execute(self)
                 request = requests.post(oasis_seo_url, headers=self.headers, data=json.dumps(self.body))
                 if request.status_code != 200:
                     print('状态码不对:%s' % request.status_code)
@@ -272,7 +281,7 @@ class OasisSeo(object):
                     body = {
                         'PicStr': json.dumps(b)
                     }
-                    req = requests.post(pic_change_url, headers=self.headers, data=json.dumps(body))
+                    req = requests.post(pic_handle_insert_url, headers=self.headers, data=json.dumps(body))
                     if req.status_code == 200:
                         # 生成url
                         url = json.loads(req.text)

@@ -7,16 +7,15 @@ from selenium.webdriver.common.proxy import Proxy
 # 打开浏览器
 options = webdriver.ChromeOptions()
 # 设置无头浏览器
-# options.add_argument('--headless')
+options.add_argument('--headless')
 # 禁用gpu
 options.add_argument('--disable-gpu')
-options.add_argument('--''')
 
 browser = webdriver.Chrome(options=options, executable_path=r'E:\通用文件夹\chromedriver\chromedriver.exe')
-browser.set_window_size(width=800, height=800)
+browser.set_window_size(width=800, height=5000)
 browser.get('https://m.weibo.cn/search?containerid=100103type%3D1%26q%3D' + '婚纱')
-
-Proxy.add_to_capabilities()
+print(browser.current_url)
+browser.save_screenshot('test.png')
 
 # selenium.webdriver.common.proxy.Proxy(raw=None)[source]¶
 
