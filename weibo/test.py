@@ -5,14 +5,20 @@ import uiautomator2 as u2
 import time
 import urllib.request
 import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import os
 
-header = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36'
-}
-com_url = 'http://192.168.2.74:5000/comshot2/海外婚礼/美好回忆。/0'
+import base64
 
-result = requests.get(url=com_url, headers=header)
-
+options = Options()
+options.add_argument('--headless')
+driver = webdriver.Chrome(options=options)
+# file:///'+os.path.abspath('test.html')
+# file_name = r"file:///" + os.path.abspath('quotes-s.weibo.com.html')
+driver.get('http://localhost:63342/Jeqee%E7%83%AD%E9%97%A8/spider/weibo/quotes-s.weibo.com.html')
+driver.set_window_size(width=800, height=5000)
+driver.save_screenshot('test.png')
 
 # fruits = ['apple', 'banana', 'mango']
 # for fruit in fruits:

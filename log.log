@@ -1,0 +1,3 @@
+Fri 10 Jan 2020 16:32:06 WARNING UnitTest.py 26 46972 warn message
+Fri 10 Jan 2020 16:32:06 ERROR UnitTest.py 27 46972 error message
+Fri 10 Jan 2020 16:32:06 CRITICAL UnitTest.py 28 46972 critical message

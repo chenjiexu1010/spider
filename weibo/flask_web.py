@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # !/usr/bin/Python3
 from flask import Flask
-from spider.weibo.weibo_screenhot import WeiBoScreenShot
+from spider.业务截图.weibonewscreenshot.weibo_screenhot import WeiBoScreenShot
 import json
 
 # 连接设备 8c5a04d2 usb 链接 可采用wife
