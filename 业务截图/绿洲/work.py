@@ -26,8 +26,8 @@ code = 'jeqeehot'
 
 class OasisSeo(object):
     def __init__(self):
-        # self.d = u2.connect_usb('8c5a04d2')
-        self.d = u2.connect_wifi('http://0.0.0.0')
+        self.d = u2.connect_usb('8c5a04d2')
+        # self.d = u2.connect_wifi('http://0.0.0.0')
         self.d.screen_on()
         self.d.set_new_command_timeout(timeout=300000)
         self.d.watcher("ALERT").when(text="取消").click()
@@ -281,7 +281,7 @@ class OasisSeo(object):
                     body = {
                         'PicStr': json.dumps(b)
                     }
-                    req = requests.post(pic_handle_insert_url, headers=self.headers, data=json.dumps(body))
+                    req = requests.post(pic_change_url, headers=self.headers, data=json.dumps(body))
                     if req.status_code == 200:
                         # 生成url
                         url = json.loads(req.text)

@@ -194,10 +194,8 @@ def get_weibo_com_end(key_world, test_code, type_code):
                         uid_mid = {'uid': uid, 'mid': mid}
                         blog_list.append(uid_mid)
                     break
-                else:
-                    print('未匹配到 检测码:%s, 内容:%s' % (test_code, result))
             else:
-                logger.warning('未匹配到检测码%s -- %s' % (result, test_code))
+                logger.warning('未匹配到检测码%s -- ' % test_code)
         if blog_list:
             logger.info('存在检测码:%s' % blog_list)
             return json.dumps(blog_list)
@@ -209,7 +207,10 @@ def get_weibo_com_end(key_world, test_code, type_code):
 
 @app.route('/comshot/<keyword>/<code>')
 def hot_screen(keyword, code):
-    return get_weibo_com_url(keyword, code)
+    res = get_weibo_com_url(keyword, code)
+    if res:
+        return res
+    return 'Failed'
 
 
 @app.route('/comshot2/<keyword>/<code>/<int:type_code>')

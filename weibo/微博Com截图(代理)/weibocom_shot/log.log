@@ -1,0 +1,143 @@
+Tue 14 Jan 2020 17:02:55 WARNING weibo_shot_proxy.py 92 62648 mid元素获取为空mid: 4460285286666237
+Tue 14 Jan 2020 17:02:59 INFO weibo_shot_proxy.py 128 62648 删除本地文件成功PicName:  ,FileName: 8080b25c-36ac-11ea-ba9f-40167eaae4e9.html
+Tue 14 Jan 2020 17:03:00 WARNING weibo_shot_proxy.py 78 62648 截图失败 Keyword: 体彩 Mid: 4460285286666237
+Tue 14 Jan 2020 17:03:58 INFO weibo_shot_proxy.py 129 54460 删除本地文件成功PicName:  ,FileName: c7682df6-36ac-11ea-bc9c-40167eaae4e9.html
+Tue 14 Jan 2020 17:03:58 WARNING weibo_shot_proxy.py 79 54460 截图失败 Keyword: 体彩 Mid: 4460285286666237
+Tue 14 Jan 2020 17:04:36 INFO weibo_shot_proxy.py 129 54460 删除本地文件成功PicName:  ,FileName: d4b46e3e-36ac-11ea-b9db-40167eaae4e9.html
+Tue 14 Jan 2020 17:04:36 WARNING weibo_shot_proxy.py 79 54460 截图失败 Keyword: 体彩 Mid: 4460285286666237
+Tue 14 Jan 2020 17:05:21 INFO weibo_shot_proxy.py 129 54460 删除本地文件成功PicName:  ,FileName: e751e590-36ac-11ea-892b-40167eaae4e9.html
+Tue 14 Jan 2020 17:05:22 WARNING weibo_shot_proxy.py 79 54460 截图失败 Keyword: 体彩 Mid: 4460285286666237
+Thu 16 Jan 2020 14:15:50 WARNING weibo_shot_proxy.py 141 50344 当前card不存在mid属性
+Thu 16 Jan 2020 14:15:54 WARNING weibo_shot_proxy.py 141 50344 当前card不存在mid属性
+Thu 16 Jan 2020 14:15:59 WARNING weibo_shot_proxy.py 141 50344 当前card不存在mid属性
+Thu 16 Jan 2020 17:31:15 WARNING weibo_shot_proxy.py 134 29064 card元素获取失败
+Thu 16 Jan 2020 17:32:01 WARNING weibo_shot_proxy.py 141 51348 当前card不存在mid属性
+Thu 16 Jan 2020 17:32:03 WARNING weibo_shot_proxy.py 141 51348 当前card不存在mid属性
+Thu 16 Jan 2020 17:32:06 WARNING weibo_shot_proxy.py 141 51348 当前card不存在mid属性
+Thu 16 Jan 2020 17:39:50 WARNING weibo_shot_proxy.py 134 55696 card元素获取失败
+Thu 16 Jan 2020 17:39:59 INFO weibo_shot_proxy.py 179 55696 删除本地文件成功PicName:  ,FileName: 1f79c176-3844-11ea-9206-40167eaae4e9.html
+Thu 16 Jan 2020 17:40:02 WARNING weibo_shot_proxy.py 88 55696 截图失败 Keyword: 鼻综合 Mid: 4461313688345805
+Thu 16 Jan 2020 17:40:36 INFO weibo_shot_proxy.py 179 55064 删除本地文件成功PicName:  ,FileName: 34f206ae-3844-11ea-b6cb-40167eaae4e9.html
+Thu 16 Jan 2020 17:40:36 WARNING weibo_shot_proxy.py 88 55064 截图失败 Keyword: 鼻综合 Mid: 4461313688345805
+Thu 16 Jan 2020 17:52:00 WARNING weibo_shot_proxy.py 141 45580 当前card不存在mid属性
+Thu 16 Jan 2020 17:52:00 WARNING weibo_shot_proxy.py 141 45580 当前card不存在mid属性
+Thu 16 Jan 2020 17:52:00 WARNING weibo_shot_proxy.py 141 45580 当前card不存在mid属性
+Thu 16 Jan 2020 17:55:01 WARNING weibo_shot_proxy.py 141 54080 当前card不存在mid属性
+Thu 16 Jan 2020 17:55:01 WARNING weibo_shot_proxy.py 141 54080 当前card不存在mid属性
+Thu 16 Jan 2020 17:55:01 WARNING weibo_shot_proxy.py 141 54080 当前card不存在mid属性
+Thu 16 Jan 2020 18:02:29 WARNING weibo_shot_proxy.py 141 26676 当前card不存在mid属性
+Thu 16 Jan 2020 18:02:29 WARNING weibo_shot_proxy.py 141 26676 当前card不存在mid属性
+Thu 16 Jan 2020 18:02:29 WARNING weibo_shot_proxy.py 141 26676 当前card不存在mid属性
+Thu 16 Jan 2020 18:03:50 WARNING weibo_shot_proxy.py 141 56700 当前card不存在mid属性
+Thu 16 Jan 2020 18:03:50 WARNING weibo_shot_proxy.py 141 56700 当前card不存在mid属性
+Thu 16 Jan 2020 18:03:50 WARNING weibo_shot_proxy.py 141 56700 当前card不存在mid属性
+Thu 16 Jan 2020 18:04:05 INFO weibo_shot_proxy.py 183 56700 删除本地文件成功PicName:  ,FileName: 7c33fb80-3847-11ea-a8f6-40167eaae4e9.html
+Thu 16 Jan 2020 18:04:05 WARNING weibo_shot_proxy.py 88 56700 截图失败 Keyword: 鼻综合 Mid: 4461313688345805
+Fri 17 Jan 2020 09:43:42 WARNING weibo_shot_proxy.py 134 51376 card元素获取失败 mid 4460662354765977
+Fri 17 Jan 2020 09:43:42 INFO weibo_shot_proxy.py 183 51376 删除本地文件成功PicName:  ,FileName: c90186b6-38ca-11ea-9469-40167eaae4e9.html
+Fri 17 Jan 2020 09:43:42 WARNING weibo_shot_proxy.py 88 51376 截图失败 Keyword: 三亚婚纱摄影 Mid: 4460662354765977
+Fri 17 Jan 2020 09:45:16 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:45:18 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:45:18 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:45:18 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:45:18 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:45:18 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:45:18 INFO weibo_shot_proxy.py 183 58896 删除本地文件成功PicName:  ,FileName: fde372f4-38ca-11ea-8d51-40167eaae4e9.html
+Fri 17 Jan 2020 09:45:18 WARNING weibo_shot_proxy.py 88 58896 截图失败 Keyword: 三亚婚纱摄影 Mid: 4460662354765977
+Fri 17 Jan 2020 09:45:43 WARNING weibo_shot_proxy.py 141 58896 当前card不存在mid属性
+Fri 17 Jan 2020 09:46:41 INFO weibo_shot_proxy.py 183 58896 删除本地文件成功PicName:  ,FileName: 0e98efda-38cb-11ea-9553-40167eaae4e9.html
+Fri 17 Jan 2020 09:46:41 WARNING weibo_shot_proxy.py 88 58896 截图失败 Keyword: 三亚婚纱摄影 Mid: 4460662354765977
+Fri 17 Jan 2020 09:47:33 WARNING weibo_shot_proxy.py 134 58896 card元素获取失败 mid 4460324051124042
+Fri 17 Jan 2020 09:47:33 INFO weibo_shot_proxy.py 183 58896 删除本地文件成功PicName:  ,FileName: 52ce305a-38cb-11ea-8ef9-40167eaae4e9.html
+Fri 17 Jan 2020 09:47:33 WARNING weibo_shot_proxy.py 88 58896 截图失败 Keyword: 脂肪填充 Mid: 4460324051124042
+Fri 17 Jan 2020 09:47:58 WARNING weibo_shot_proxy.py 134 58896 card元素获取失败 mid 4460324051124042
+Fri 17 Jan 2020 09:47:58 INFO weibo_shot_proxy.py 183 58896 删除本地文件成功PicName:  ,FileName: 6181e668-38cb-11ea-8f6f-40167eaae4e9.html
+Fri 17 Jan 2020 09:47:58 WARNING weibo_shot_proxy.py 88 58896 截图失败 Keyword: 脂肪填充 Mid: 4460324051124042
+Fri 17 Jan 2020 09:48:42 WARNING weibo_shot_proxy.py 134 58896 card元素获取失败 mid 4460324051124042
+Fri 17 Jan 2020 09:48:44 INFO weibo_shot_proxy.py 183 58896 删除本地文件成功PicName:  ,FileName: 6b19eb74-38cb-11ea-84e0-40167eaae4e9.html
+Fri 17 Jan 2020 09:48:46 WARNING weibo_shot_proxy.py 88 58896 截图失败 Keyword: 脂肪填充 Mid: 4460324051124042
+Fri 17 Jan 2020 09:57:57 WARNING weibo_shot_proxy.py 141 63276 当前card不存在mid属性
+Fri 17 Jan 2020 09:58:04 WARNING weibo_shot_proxy.py 141 63276 当前card不存在mid属性
+Fri 17 Jan 2020 09:58:04 WARNING weibo_shot_proxy.py 141 63276 当前card不存在mid属性
+Fri 17 Jan 2020 09:58:04 WARNING weibo_shot_proxy.py 141 63276 当前card不存在mid属性
+Fri 17 Jan 2020 09:58:04 WARNING weibo_shot_proxy.py 141 63276 当前card不存在mid属性
+Fri 17 Jan 2020 09:58:04 WARNING weibo_shot_proxy.py 141 63276 当前card不存在mid属性
+Fri 17 Jan 2020 09:58:04 INFO weibo_shot_proxy.py 183 63276 删除本地文件成功PicName:  ,FileName: be15135c-38cc-11ea-8dd2-40167eaae4e9.html
+Fri 17 Jan 2020 09:58:04 WARNING weibo_shot_proxy.py 88 63276 截图失败 Keyword: 脂肪填充 Mid: 4461313688345805
+Fri 17 Jan 2020 09:59:01 INFO weibo_shot_proxy.py 183 57952 删除本地文件成功PicName:  ,FileName: e84af350-38cc-11ea-9b5b-40167eaae4e9.html
+Fri 17 Jan 2020 09:59:01 WARNING weibo_shot_proxy.py 88 57952 截图失败 Keyword: 脂肪填充 Mid: 4461313688345805
+Fri 17 Jan 2020 11:19:37 WARNING weibo_shot_proxy.py 134 57740 card元素获取失败 mid 4459861645352701
+Fri 17 Jan 2020 11:19:37 INFO weibo_shot_proxy.py 183 57740 删除本地文件成功PicName:  ,FileName: 2f84be86-38d8-11ea-a973-40167eaae4e9.html
+Fri 17 Jan 2020 11:19:37 WARNING weibo_shot_proxy.py 88 57740 截图失败 Keyword: 微笑唇 Mid: 4459861645352701
+Fri 17 Jan 2020 11:19:38 WARNING weibo_shot_proxy.py 134 57740 card元素获取失败 mid 4460315829835402
+Fri 17 Jan 2020 11:19:38 INFO weibo_shot_proxy.py 183 57740 删除本地文件成功PicName:  ,FileName: 2fde6a12-38d8-11ea-aa14-40167eaae4e9.html
+Fri 17 Jan 2020 11:19:38 WARNING weibo_shot_proxy.py 88 57740 截图失败 Keyword: 珠宝定制 Mid: 4460315829835402
+Fri 17 Jan 2020 11:19:42 WARNING weibo_shot_proxy.py 134 57740 card元素获取失败 mid 4459853193519879
+Fri 17 Jan 2020 11:19:42 INFO weibo_shot_proxy.py 183 57740 删除本地文件成功PicName:  ,FileName: 327d4388-38d8-11ea-96cc-40167eaae4e9.html
+Fri 17 Jan 2020 11:19:42 WARNING weibo_shot_proxy.py 88 57740 截图失败 Keyword: 热玛吉 Mid: 4459853193519879
+Fri 17 Jan 2020 11:20:27 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:27 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:27 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:28 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:28 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:28 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:28 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:28 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:28 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 4c6004b6-38d8-11ea-b1a0-40167eaae4e9.html
+Fri 17 Jan 2020 11:20:28 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 鼻综合 Mid: 4459882277518572
+Fri 17 Jan 2020 11:20:30 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:30 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:30 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:20:32 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 4f5e073a-38d8-11ea-bfcb-40167eaae4e9.html
+Fri 17 Jan 2020 11:20:32 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 三亚婚纱摄影 Mid: 4460662354765977
+Fri 17 Jan 2020 11:20:35 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName: 5316d9e2-38d8-11ea-be5b-40167eaae4e9.png ,FileName: 4e1a6c08-38d8-11ea-b878-40167eaae4e9.html
+Fri 17 Jan 2020 11:20:35 INFO weibo_shot_proxy.py 85 64340 截图成功 Keyword: 鼻综合 Mid: 4461313688345805
+Fri 17 Jan 2020 11:23:14 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: aef34bca-38d8-11ea-b5c8-40167eaae4e9.html
+Fri 17 Jan 2020 11:23:14 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 奢侈品代购 Mid: 4451608345466876
+Fri 17 Jan 2020 11:23:49 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: c44efcf4-38d8-11ea-98af-40167eaae4e9.html
+Fri 17 Jan 2020 11:23:49 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 奢侈品代购 Mid: 4451608345466876
+Fri 17 Jan 2020 11:24:04 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: cd8f09ac-38d8-11ea-9d46-40167eaae4e9.html
+Fri 17 Jan 2020 11:24:04 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 高仿包包 Mid: 4459496430935863
+Fri 17 Jan 2020 11:26:12 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 18b9464a-38d9-11ea-9e33-40167eaae4e9.html
+Fri 17 Jan 2020 11:26:12 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 古董珠宝 Mid: 4461287582779903
+Fri 17 Jan 2020 11:26:19 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:19 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:20 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:20 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:20 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:20 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:20 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 1d0f05fe-38d9-11ea-b1a1-40167eaae4e9.html
+Fri 17 Jan 2020 11:26:20 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 莆田鞋 Mid: 4461322848841504
+Fri 17 Jan 2020 11:26:21 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:21 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:21 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 13f03dae-38d9-11ea-973f-40167eaae4e9.html
+Fri 17 Jan 2020 11:26:21 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 知颜整形医院 Mid: 4460928236458714
+Fri 17 Jan 2020 11:26:21 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:26:21 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 0d65c91c-38d9-11ea-a096-40167eaae4e9.html
+Fri 17 Jan 2020 11:26:21 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 手表 Mid: 4460949191119166
+Fri 17 Jan 2020 11:27:08 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:08 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 3a034f70-38d9-11ea-aa46-40167eaae4e9.html
+Fri 17 Jan 2020 11:27:08 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 潮牌 Mid: 4461648553103824
+Fri 17 Jan 2020 11:27:37 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:37 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:37 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:37 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:37 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:37 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 4b49dbf6-38d9-11ea-b3c2-40167eaae4e9.html
+Fri 17 Jan 2020 11:27:37 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 减肥药 Mid: 4461653770870693
+Fri 17 Jan 2020 11:27:56 WARNING weibo_shot_proxy.py 141 64340 当前card不存在mid属性
+Fri 17 Jan 2020 11:27:56 INFO weibo_shot_proxy.py 183 64340 删除本地文件成功PicName:  ,FileName: 56dd8e18-38d9-11ea-9b4e-40167eaae4e9.html
+Fri 17 Jan 2020 11:27:56 WARNING weibo_shot_proxy.py 88 64340 截图失败 Keyword: 潮牌 Mid: 4461651212220380
+Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid属性 mid: 4460636493091295
+Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid属性 mid: 4460636493091295
+Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid属性 mid: 4460636493091295
+Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid属性 mid: 4460636493091295
+Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid属性 mid: 4460636493091295
+Fri 17 Jan 2020 13:49:35 INFO weibo_shot_proxy.py 183 67236 删除本地文件成功PicName:  ,FileName: 203d5540-38ed-11ea-aa83-40167eaae4e9.html
+Fri 17 Jan 2020 13:49:39 WARNING weibo_shot_proxy.py 88 67236 截图失败 Keyword: 海外婚礼 Mid: 4460636493091295

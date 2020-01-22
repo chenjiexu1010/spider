@@ -51,7 +51,7 @@ class XiaoMiCheckTool(object):
             except smtplib.SMTPException as e:
                 print('无法发送邮件')
         else:
-            print('手机执行正常')
+            print('手机执行正常 %s' % (datetime.datetime.now()))
 
     def mobile_status(self):
         while True:
