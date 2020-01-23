@@ -12,14 +12,17 @@ pic_handle_insert_url = 'http://222.185.251.62:22027/api/phone/pichandle'
 pic_change_url = 'http://222.185.251.62:22027/api/phone/getpicurl'
 
 
+# 小红书SEO截图
 class XhsSearch(object):
     def __init__(self):
         self.d = u2.connect('http://0.0.0.0')
         # self.d = u2.connect_usb('56d78870')
         self.number = 0
-        self.d.watcher("ALERT").when(text="取消")
+        self.d.watcher("ALERT").when(text="取消").click()
         self.d.watcher("ALERT").when(text="下次再说").click()
         self.d.watcher("ALERT").when(text="以后再说").click()
+        self.d.watcher("ALERT").when(text="跳过广告").click()
+        self.d.watcher("ALERT").when(text="同意").click()
         self.get_xhs_url = 'http://222.185.251.62:22027/api/GetRedBookData'
         self.submit_url = 'http://222.185.251.62:22027/api/UpdateRedBookPicCheck'
         self.body = {'PhoneCode': '小米手机11'}
@@ -29,10 +32,10 @@ class XhsSearch(object):
         self.location = {}
         self.update_phone_url = 'http://222.185.251.62:22027/api/phone/updatephoneinfo'
         # self.d.healthcheck()
-        print('手机连接成功')
         # 打开app
         XhsSearch.app_start(self)
 
+    # 更新手机信息
     def update_phone(self, typecode, logtype, phone_code):
         body = {
             "PhoneCode": phone_code,
@@ -42,57 +45,37 @@ class XhsSearch(object):
         }
         requests.post(self.update_phone_url, headers=self.headers, data=json.dumps(body))
 
-    # 清楚缓存重新登录
-    def app_clear(self):
-        pass
-
     # 启动app
     def app_start(self):
         self.d.screen_on()
-        self.d.app_start('com.xingin.xhs', use_monkey=True)
+        self.d.app_start('com.xingin.xhs')
         self.d.app_wait('com.xingin.xhs', front=True, timeout=20)
-        is_exist = self.d(text='跳过广告').exists()
-        if is_exist:
-            self.d(text='跳过广告').click()
-        is_exist = self.d(text='同意').exists()
-        if is_exist:
-            self.d(text='同意').click()
         time.sleep(10)
-        is_exist = self.d(text='取消').exists()
-        if is_exist:
-            self.d(text='取消').click()
 
     # 关键词截图
     def key_world_search(self, key_world, content):
         set2 = set()
         match_title = False
-        match_name = False
-        XhsSearch.judge_is_home(self)
+        # 判断是否在首页
+        XhsSearch.come_back_home(self)
         try:
-            if self.d(resourceId='com.xingin.xhs:id/b4b').exists():
-                self.d(resourceId='com.xingin.xhs:id/b4b').click()
-                time.sleep(2)
-                if self.d(className='android.widget.EditText').exists():
-                    self.d(className='android.widget.EditText').click()
-                    # self.d.set_fastinput_ime(True)
-                    self.d(className='android.widget.EditText').send_keys(key_world)
-                    # self.d.send_keys(key_world)
-                    # self.d.set_fastinput_ime(False)
-                    time.sleep(3)
-                    if self.d(text='搜索').exists():
-                        self.d(text='搜索').click()
-                        # 等待响应页面
-                        time.sleep(5)
-                    else:
-                        return ''
-                else:
-                    return ''
-            else:
+            if not self.d(resourceId='com.xingin.xhs:id/b4b').exists():
                 return ''
+            self.d(resourceId='com.xingin.xhs:id/b4b').click()
+            time.sleep(2)
+            if not self.d(className='android.widget.EditText').exists():
+                return ''
+            self.d(className='android.widget.EditText').click()
+            self.d(className='android.widget.EditText').send_keys(key_world)
+            time.sleep(3)
+            if not self.d(text='搜索').exists():
+                return ''
+            self.d(text='搜索').click()
+            time.sleep(5)
             while True:
-                if len(set2) > 10:
+                if len(set2) > 11:
                     self.number = 0
-                    print('搜索达到上限 50篇笔记')
+                    print('搜索达到10篇笔记,循环终止')
                     break
                 # # 匹配内容
                 for title in self.d(resourceId='com.xingin.xhs:id/b3e'):
@@ -106,21 +89,9 @@ class XhsSearch(object):
                         time.sleep(5)
                         self.location = self.d(textContains=content).info
                         break
-                    # if match_title:
-                    #     break
-                    # 匹配名称 判断是否匹配到内容
-                    # if not match_name:
-                    #     for nickname in self.d(resourceId='com.xingin.xhs:id/b3g'):
-                    #         if name in nickname.info['text']:
-                    #             match_name = True
-                    #             # top = nickname.info['bounds']['top']
-                    #             # 移动笔记到指定位置
-                    #             # XhsSearch.move_ele_position(self, top, nickname)
-                    #             # time.sleep(2)
-                    #             break
                 # 找到标题 获取 昵称
                 if len(set2) < 10:
-                    if match_title or match_name:
+                    if match_title:
                         # TODO 截全图
                         name = str(uuid.uuid1()) + '.png'
                         self.d.screenshot(name)
@@ -149,14 +120,6 @@ class XhsSearch(object):
                 b.append(i)
         return b
 
-    # 判断是否在首页
-    def judge_is_home(self):
-        if self.d(resourceId='com.xingin.xhs:id/agg').exists():
-            return
-        else:
-            print('不在首页 应用重启')
-            XhsSearch.app_start(self)
-
     # 返回首页
     def come_back_home(self):
         for i in range(1, 5):
@@ -165,15 +128,6 @@ class XhsSearch(object):
             else:
                 self.d.press("back")
                 time.sleep(2)
-
-    # 点击 我  版面
-    def random_click(self):
-        if self.d(text='我').exists():
-            self.d(text='我').click()
-
-    # 重新激活qpy3后台程序
-    def active_qpy3(self):
-        pass
 
     def execute_do(self):
         while True:
@@ -188,7 +142,6 @@ class XhsSearch(object):
                         XhsSearch.update_phone(self, self.typecode, '无任务', self.phonecode)
                         time.sleep(5 * 60)
                         self.d.healthcheck()
-                        # XhsSearch.random_click(self)
                         XhsSearch.app_start(self)
                         continue
                     text = json.loads(text)
@@ -196,7 +149,7 @@ class XhsSearch(object):
                     b = XhsSearch.key_world_search(self, text['KeyWord'], text['Title'])
                     if b:
                         if not self.location:
-                            XhsSearch.update_phone(self, self.typecode, '获取Location为空', self.phonecode)
+                            XhsSearch.update_phone(self, self.typecode, '图片地址获取为空', self.phonecode)
                             continue
                         body = {
                             'PicStr': json.dumps(b)

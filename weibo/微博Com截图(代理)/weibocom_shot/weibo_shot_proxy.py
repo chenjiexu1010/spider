@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 import uuid
 import os
-from flask import Flask, jsonify
+from flask import Flask
 import time
 
 host = '192.168.2.74'
@@ -25,7 +25,7 @@ fh.setFormatter(formatter)
 class WeiBoShot(object):
     def __init__(self):
         self.option = Options()
-        # self.option.add_argument('--headless')
+        self.option.add_argument('--headless')
         self.option.add_argument('--disable-gpu')
         self.driver = webdriver.Chrome(options=self.option)
         self.driver.set_script_timeout(1)
@@ -92,6 +92,7 @@ class WeiBoShot(object):
             self.driver.quit()
         return '失败'
 
+    # TODO  携带Cookie请求搜索页面
     def download_element_with_cookie(self, key_world, mid, type_code):
         try:
             # ip = WeiBoShot.get_proxy_ip(self)
@@ -140,34 +141,24 @@ class WeiBoShot(object):
                     self.logger.warning('当前card不存在mid属性 mid: %s' % mid)
                     continue
                 if mid in check_find:
-                    try:
-                        self.driver.execute_async_script(
-                            "document.getElementsByClassName('card-wrap')[%d].style.border = '2px solid red'" % (
-                                i))
-                        # # 热门  实时 状态区分
-                        # if type_code == 0 and '热门' in card_elements[i].text[0:20].strip():
-                        #     self.driver.execute_async_script(
-                        #         "document.getElementsByClassName('card-wrap')[%d].style.border = '2px solid red'" % (
-                        #             i))
-                        # else:
-                        #     return pic_byte
-                        # if type_code == 1:
-                        #     self.driver.execute_async_script(
-                        #         "document.getElementsByClassName('card-wrap')[%d].style.border = '2px solid red'" % (
-                        #             i))
-                    except Exception as ex:
-                        try:
-                            self.driver.execute_async_script(
-                                "window.scrollTo(0, %d)" % card_elements[i].location['y'])
-                        except Exception as ex2:
-                            pass
-                    # 设置浏览器高度
+                    self.driver.execute_script(
+                        "document.getElementsByClassName('card-wrap')[%d].style.border = '2px solid red'" % (
+                            i))
+                    # # 热门  实时 状态区分
+                    # if type_code == 0 and '热门' in card_elements[i].text[0:20].strip():
+                    #     self.driver.execute_async_script(
+                    #         "document.getElementsByClassName('card-wrap')[%d].style.border = '2px solid red'" % (
+                    #             i))
+                    # else:
+                    #     return pic_byte
+                    # if type_code == 1:
+                    #     self.driver.execute_async_script(
+                    #         "document.getElementsByClassName('card-wrap')[%d].style.border = '2px solid red'" % (
+                    #             i))
+                    self.driver.execute_script(
+                        "window.scrollTo(0, %d)" % card_elements[i].location['y'])
                     self.driver.set_window_size(width=800, height=800 + card_elements[i].location['y'])
-                    try:
-                        self.driver.execute_async_script(
-                            "window.scrollTo(0, 0)")
-                    except Exception as ex3:
-                        pass
+                    self.driver.execute_script("window.scrollTo(0, 0)")
                     pic_name = str(uuid.uuid1()) + '.png'
                     self.driver.save_screenshot(pic_name)
                     print('成功截到图mid:' + mid)
@@ -186,7 +177,6 @@ class WeiBoShot(object):
         return pic_byte
 
     @staticmethod
-    # 图片转二进制数组
     def pic_to_byte(pic_name):
         b = []
         with open(pic_name, 'rb') as f:
@@ -195,7 +185,6 @@ class WeiBoShot(object):
         return b
 
 
-# com截图
 @app.route('/comscreenshot/<keyword>/<mid>/<int:type_code>')
 def com_hot_screen(keyword, mid, type_code):
     # TODO 占用内存
@@ -222,5 +211,5 @@ def com_hot_screen(keyword, mid, type_code):
 if __name__ == '__main__':
     # app.run(host=host, port=5001)
     wei_bo = WeiBoShot()
-    wei_bo.download_element('海外婚礼', '4460938096954456', 0)
+    wei_bo.download_element('海外婚礼', '', 0)
     # wei_bo.download_element_with_cookie('海外婚礼', '')

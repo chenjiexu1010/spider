@@ -141,3 +141,5 @@ Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid
 Fri 17 Jan 2020 13:49:35 WARNING weibo_shot_proxy.py 141 67236 当前card不存在mid属性 mid: 4460636493091295
 Fri 17 Jan 2020 13:49:35 INFO weibo_shot_proxy.py 183 67236 删除本地文件成功PicName:  ,FileName: 203d5540-38ed-11ea-aa83-40167eaae4e9.html
 Fri 17 Jan 2020 13:49:39 WARNING weibo_shot_proxy.py 88 67236 截图失败 Keyword: 海外婚礼 Mid: 4460636493091295
+Thu 23 Jan 2020 11:07:52 INFO weibo_shot_proxy.py 186 66064 删除本地文件成功PicName: 88b78048-3d8d-11ea-8c68-40167eaae4e9.png ,FileName: 735a124c-3d8d-11ea-a20f-40167eaae4e9.html
+Thu 23 Jan 2020 11:07:55 INFO weibo_shot_proxy.py 84 66064 截图成功 Keyword: 海外婚礼 Mid: 
