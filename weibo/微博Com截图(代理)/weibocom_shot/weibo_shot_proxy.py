@@ -33,7 +33,7 @@ class WeiBoShot(object):
         # 通用文件夹\python打包\微博com无账号截图\dist
         # self.open_html_url = 'http://localhost:63342/Jeqee热门/spider/weibo/微博Com截图(代理)/weibocom_shot/exe文件/dist/'
         self.open_html_url = 'http://localhost:63342/Jeqee热门/spider/weibo/微博Com截图(代理)/weibocom_shot/'
-        self.auth = HTTPProxyAuth('jeqee', 'jeqeeproxy')
+        self.auth = HTTPProxyAuth('xxx', 'xxx')
         self.headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36',

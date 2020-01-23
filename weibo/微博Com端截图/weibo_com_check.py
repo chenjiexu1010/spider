@@ -31,8 +31,8 @@ app = Flask(__name__)
 
 # 获取代理url
 proxy_url = 'http://192.168.2.74:25003/api/GetRandomProxy'
-ProxyUsername = "jeqee"
-ProxyPassword = "jeqeeproxy"
+ProxyUsername = "xxx"
+ProxyPassword = "xxx"
 # 代理授权
 auth = HTTPProxyAuth(ProxyUsername, ProxyPassword)
 
