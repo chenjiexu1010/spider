@@ -24,13 +24,21 @@ body = {
     "CurrentRank": 0
 }
 '''
-婚礼策划客源引流
-体彩吲留找小川
-微信弓丨流魔法师
+
+美瞳安利找肉肉美瞳店
+零食推荐进口加盟yami
+情感挽回吲流MCOCO
+推广吲流M魔法师
+竞彩吲流M我吧
+足彩吲流M小川
+代购吲流M魔法师
+微信吲流M魔法师
 
 '''
-
-# stop_req = requests.post(add_url, headers=header, data=json.dumps('微信弓丨流魔法师'))
+with open('dropdownwords.txt', 'r', encoding='utf8') as r:
+    words = r.read().splitlines()
+    for word in words:
+        stop_req = requests.post(add_url, headers=header, data=json.dumps(word))
 # print(stop_req.content)
 
 # 提交测试

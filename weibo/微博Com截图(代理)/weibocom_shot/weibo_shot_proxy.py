@@ -33,7 +33,7 @@ class WeiBoShot(object):
         # 通用文件夹\python打包\微博com无账号截图\dist
         # self.open_html_url = 'http://localhost:63342/Jeqee热门/spider/weibo/微博Com截图(代理)/weibocom_shot/exe文件/dist/'
         self.open_html_url = 'http://localhost:63342/Jeqee热门/spider/weibo/微博Com截图(代理)/weibocom_shot/'
-        self.auth = HTTPProxyAuth('xxx', 'xxx')
+        self.auth = HTTPProxyAuth('jeqee', 'jeqeeproxy')
         self.headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36',
@@ -209,7 +209,7 @@ def com_hot_screen(keyword, mid, type_code):
 
 
 if __name__ == '__main__':
-    # app.run(host=host, port=5001)
-    wei_bo = WeiBoShot()
-    wei_bo.download_element('海外婚礼', '', 0)
+    app.run(host=host, port=5001)
+    # wei_bo = WeiBoShot()
+    # wei_bo.download_element('手表', '', 0)
     # wei_bo.download_element_with_cookie('海外婚礼', '')
